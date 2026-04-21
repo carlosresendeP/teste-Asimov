@@ -19,4 +19,17 @@
 
 3-Services
 - Services criado
+-correção e alinhamento
 - teste de build *ok* 
+
+
+5-CTA
+- CTA criado
+-correção e alinhamento
+- teste de build *ok* 
+
+4-Case Studies
+- Case Studies criado
+-correção e alinhamento
+- teste de build *ok* 
+
