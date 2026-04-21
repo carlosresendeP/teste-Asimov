@@ -12,4 +12,10 @@ export const GlobalStyles = createGlobalStyle`
         background-color: #f5f5f5;
         font-family: 'Space Grotesk', sans-serif;
     }
+
+    .container {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 100px;
+    }
 `;

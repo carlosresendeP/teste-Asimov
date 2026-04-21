@@ -1,8 +1,8 @@
 
-import { Hero } from './Components/Hero'
-import { GlobalStyles } from './styles/GlobalStyles'
-import { ThemeProvider } from 'styled-components'
-import { theme } from './styles/Theme'
+import { Hero } from "./Components/Hero/Hero.tsx";
+import { GlobalStyles } from "./styles/GlobalStyles";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./styles/Theme";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <GlobalStyles />
       <Hero />
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;

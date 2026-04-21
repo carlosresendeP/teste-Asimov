@@ -12,7 +12,7 @@ export const theme = {
     hero: '60px',
     sectionTitle: '40px',
     cardTitle: '28px',
-    body: '18px',
+    body: '20px',
     small: '14px',
   },
   radius: {
