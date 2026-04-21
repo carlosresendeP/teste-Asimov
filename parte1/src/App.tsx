@@ -1,5 +1,6 @@
 
 import { Hero } from "./Components/Hero/Hero.tsx";
+import { Services } from "./Components/Services/Services.tsx";
 import { GlobalStyles } from "./styles/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/Theme";
@@ -9,6 +10,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Hero />
+      <Services />
     </ThemeProvider>
   );
 }

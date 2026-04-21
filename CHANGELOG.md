@@ -9,3 +9,14 @@
 - Estrutura de pastas criada
 - Hero de teste criado
 - teste de build *ok* 
+
+
+2-Hero e Navbar
+- Hero  criado seguindo o mesmo padrão do figma
+- Navbar criada
+- teste de build *ok* 
+
+
+3-Services
+- Services criado
+- teste de build *ok* 

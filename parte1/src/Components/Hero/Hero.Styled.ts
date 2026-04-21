@@ -11,6 +11,7 @@ export const HeroSection = styled.section`
   align-items: center;
   justify-content: center;
   gap: 70px;
+
 `
 
 export const HeroGrid = styled.div`
@@ -25,6 +26,7 @@ export const HeroGrid = styled.div`
     flex-direction: column;
     max-width: 100%;
     max-height: 100%;
+    height: auto;
   }
 `
 
@@ -36,6 +38,13 @@ export const HeroContent = styled.div`
   height: 100%;
   max-height: 481px;
   gap: 35px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    max-height: none;
+    align-items: center;
+    text-align: center;
+  }
 `
 
 export const HeroTitle = styled.h1`
@@ -51,6 +60,10 @@ export const HeroDescription = styled.p`
   color: ${({ theme }) => theme.colors.black};
   line-height: 28px;
   max-width: 480px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 `
 
 export const BookButton = styled(Button)`
@@ -68,6 +81,11 @@ export const BookButton = styled(Button)`
 
   &:hover {
     opacity: 0.85;
+  }
+
+  @media (max-width: 768px) {
+    align-self: center;
+    max-width: 100%;
   }
 `
 
@@ -88,6 +106,11 @@ export const IllustrationCol = styled.div`
     min-height: 300px;
     object-fit: cover;
   }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    justify-content: center;
+  }
 `
 
 export const LogosStrip = styled.div`
@@ -97,10 +120,21 @@ export const LogosStrip = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: auto;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+    gap: 24px;
+  }
 `
 
 export const LogoItem = styled.img`
   width: 125.24px;
   object-fit: contain;
   filter: grayscale(100%);
+
+  @media (max-width: 768px) {
+    width: 80px;
+  }
 `
