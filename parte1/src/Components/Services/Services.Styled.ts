@@ -47,7 +47,6 @@ export const ServicesDescription = styled.p`
   font-size: 18px;
   color: ${({ theme }) => theme.colors.black};
   max-width: 580px;
-  line-height: 28px;
 `
 
 export const ServicesGrid = styled.div`

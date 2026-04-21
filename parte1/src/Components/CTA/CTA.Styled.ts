@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Button } from '../UI/Button/Button'
 
 export const CTASection = styled.section`
-  padding: 110px 0;
+  padding: 100px 0;
   background-color: ${({ theme }) => theme.colors.white};
 
 
