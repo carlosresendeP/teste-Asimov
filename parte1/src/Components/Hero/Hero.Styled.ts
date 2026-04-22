@@ -22,7 +22,7 @@ export const HeroGrid = styled.div`
   justify-content: space-between;
   gap: auto;
 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     flex-direction: column;
     max-width: 100%;
     max-height: 100%;
@@ -39,7 +39,7 @@ export const HeroContent = styled.div`
   max-height: 481px;
   gap: 35px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     max-width: 100%;
     max-height: none;
     align-items: center;
@@ -83,7 +83,7 @@ export const BookButton = styled(Button)`
     opacity: 0.85;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     align-self: center;
     max-width: 100%;
   }
@@ -107,9 +107,10 @@ export const IllustrationCol = styled.div`
     object-fit: cover;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     max-width: 100%;
     justify-content: center;
+    order: -1;
   }
 `
 
@@ -121,7 +122,7 @@ export const LogosStrip = styled.div`
   justify-content: space-between;
   gap: auto;
 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     flex-wrap: wrap;
     justify-content: center;
     height: auto;
@@ -134,7 +135,7 @@ export const LogoItem = styled.img`
   object-fit: contain;
   filter: grayscale(100%);
 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     width: 80px;
   }
 `

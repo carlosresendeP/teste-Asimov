@@ -79,7 +79,7 @@ export const CTAIllustration = styled.img`
   right: 15%;
   bottom: -5%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     display: none;
     position: static;
   }

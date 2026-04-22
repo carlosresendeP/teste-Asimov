@@ -31,6 +31,13 @@ export const SectionHeader = styled.div`
   height: 46px;
   align-items: center;
   gap: 40px;
+
+  @media (max-width: 995px) {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    text-align: center;
+  }
 `
 
 export const ServicesBadge = styled.h2`
@@ -55,7 +62,7 @@ export const ServicesGrid = styled.div`
   gap: 40px;
   margin-top: 80px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     grid-template-columns: 1fr;
   }
 `

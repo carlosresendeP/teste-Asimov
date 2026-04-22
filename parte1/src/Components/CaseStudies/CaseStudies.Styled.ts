@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const CaseStudiesSection = styled.section`
   background-color: ${({ theme }) => theme.colors.white};
-  margin-bottom: 20px;
+ padding-bottom: 20px;
 `
 
 export const SectionHeader = styled.div`
@@ -11,6 +11,13 @@ export const SectionHeader = styled.div`
   height: 46px;
   align-items: center;
   gap: 40px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    text-align: center;
+  }
 `
 
 export const Badge = styled.h2`
@@ -21,12 +28,6 @@ export const Badge = styled.h2`
   padding: 0 7px;
   border-radius: ${({ theme }) => theme.radius.sm};
   white-space: nowrap;
-
-  @media (max-width: 768px) {
-    font-size: 24px;
-    line-height: 28px;
-    width: 100%;
-  }
 `
 
 export const Description = styled.p`
@@ -55,7 +56,7 @@ export const CasesBlock = styled.div`
   align-items: center;
   gap:64px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     flex-direction: column;
     height: auto;
   }
