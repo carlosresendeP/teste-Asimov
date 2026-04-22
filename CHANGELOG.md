@@ -1,3 +1,5 @@
+parte-1
+
 00 - planejamento e visualização do layout no figma
     -estrair dados do figma fontes espaçamentos cores, icones, imagens, prints 
     Extrair com mcp ou manualmente 
@@ -41,3 +43,6 @@
 - deploy feito com sucesso
 
 7-finalizado 
+
+
+parte-2

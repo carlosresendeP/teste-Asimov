@@ -23,7 +23,8 @@ Atue sempre como um **desenvolvedor senior full-stack**. Isso significa:
 | Gerenciador de pacotes | npm |
 | Bundler/Framework | React 19 + Vite |
 | Linguagem | TypeScript (strict mode) |
-| Estilização | styled-components |
+| Estilização | Tailwind CSS v4 |
+| Componentes | @react-bits/ui |
 
 ---
 
@@ -110,65 +111,28 @@ type CreatePostInput = z.infer<typeof CreatePostSchema>
 - `useState`, `useEffect` e outros hooks apenas quando necessário — não use estado para valores derivados
 - Separe componentes por responsabilidade — um componente, uma função
 
-### styled-components
-
-- Cada componente tem seu arquivo de estilos separado: `Hero.tsx` + `Hero.styles.ts`
-- Nomeie os styled components com prefixo `S` ou sufixo descritivo para distinguir de componentes React
-
 ```typescript
-// Hero.styles.ts
-import styled from 'styled-components'
+// ERRADO: componente fazendo coisas demais
+const Page = () => {
+  // fetch + transformação + renderização tudo junto
+}
 
-export const HeroWrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-`
-
-export const HeroTitle = styled.h1`
-  font-size: 3rem;
-  font-weight: 700;
-`
-```
-
-- Tokens de design (cores, espaçamentos, tipografia) definidos em `src/styles/theme.ts` e passados via `ThemeProvider`
-- **Nunca** use valores hardcoded nos styled-components — sempre referencie o tema
-
-```typescript
-// ERRADO
-const Button = styled.button`
-  background: #000;
-  padding: 12px 24px;
-`
-
-// CERTO
-const Button = styled.button`
-  background: ${({ theme }) => theme.colors.primary};
-  padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.lg};
-`
-```
-
-- Responsividade via media queries dentro dos styled-components, mobile-first
-
-```typescript
-const Hero = styled.section`
-  padding: 2rem 1rem;
-
-  @media (min-width: 768px) {
-    padding: 4rem 2rem;
-  }
-`
+// CERTO: separe responsabilidades
+const HeroSection = () => { ... }
+const BulletsSection = () => { ... }
 ```
 
 ### Organização de Arquivos
 
-- `src/components/` — componentes reutilizáveis, cada um com seu `.styles.ts`
-- `src/styles/` — tema global, reset, tipografia
+- `src/components/` — componentes reutilizáveis
 - `src/types/` — tipos TypeScript globais
 - `src/hooks/` — custom hooks
+- `src/lib/` — utilitários e helpers
 
 ### Imports
 
 - Use **import absoluto** via `@/` configurado no `vite.config.ts` e `tsconfig.json`
+- Nunca use caminhos relativos profundos (`../../../components/...`)
 
 ```typescript
 // ERRADO
@@ -180,9 +144,48 @@ import Hero from '@/components/Hero'
 
 ---
 
+## Tailwind CSS (v4)
+
+### Princípios
+
+- **Mobile-first sempre**: estilos base sem prefixo, overrides com `md:`, `lg:`, etc.
+- Cores definidas em OKLCH no `index.css` via `@theme` — não use valores hardcoded
+- Dark mode via classe `.dark`
+
+```html
+<!-- CERTO: mobile-first -->
+<div class="w-full md:w-1/2 lg:w-1/3">
+
+<!-- ERRADO: desktop-first -->
+<div class="w-1/3 md:w-1/2 sm:w-full">
+```
+
+### Design System
+
+- Defina tokens de design no `index.css` com `@theme`:
+
+```css
+@import "tailwindcss";
+
+@theme {
+  --color-primary: oklch(0.7 0.15 250);
+  --color-surface: oklch(0.98 0 0);
+}
+```
+
+### Regras de Qualidade
+
+- Sem `!important` — resolva especificidade corretamente
+- Sem `style={}` inline — use utilities do Tailwind
+- Se a mesma combinação de classes aparece **3 ou mais vezes**, extraia um componente React
+- Sem `@apply` excessivo — prefira componentes a classes CSS customizadas
+- Sem arbitrary values excessivos — se usou `[valor-específico]` mais de duas vezes, vire um token
+
+---
+
 ## Ícones
 
-- Prefira **lucide-react** como primeira opção
+- Prefira **lucide-react** (já instalado) como primeira opção
 - Use **react-icons** quando lucide não tiver o ícone necessário
 - **NUNCA** importe a biblioteca inteira — sempre import específico
 
@@ -194,35 +197,28 @@ import { Search, User, Settings } from 'lucide-react'
 import * as Icons from 'lucide-react'
 ```
 
+- Defina tamanho e cor via props ou classes Tailwind
+
+```typescript
+<Search className="size-4 text-zinc-500" />
+```
+
 ---
 
 ## Estrutura de Arquivos
 
 ```
-parte-1/
+parte-2/
 ├── public/
 │   └── favicon.ico
 ├── src/
-│   ├── assets/
-│   │   └── images/
-│   ├── components/
-│   │   ├── NavBar/
-│   │   │   ├── NavBar.tsx
-│   │   │   └── NavBar.styles.ts
-│   │   ├── Hero/
-│   │   │   ├── Hero.tsx
-│   │   │   └── Hero.styles.ts
-│   │   └── [Seção]/
-│   │       ├── [Seção].tsx
-│   │       └── [Seção].styles.ts
-│   ├── styles/
-│   │   ├── theme.ts             # tokens de design (cores, espaçamentos, fontes)
-│   │   ├── global.ts            # estilos globais (createGlobalStyle)
-│   │   └── typography.ts        # escala tipográfica
-│   ├── types/
-│   ├── hooks/
+│   ├── components/          # componentes reutilizáveis
+│   ├── hooks/               # custom hooks
+│   ├── lib/                 # utilitários e helpers
+│   ├── types/               # tipos TypeScript globais
 │   ├── App.tsx
-│   └── main.tsx
+│   ├── main.tsx
+│   └── index.css            # @theme Tailwind + imports de fonte
 ├── index.html
 ├── vite.config.ts
 └── tsconfig.json
@@ -234,30 +230,41 @@ parte-1/
 
 | Item | Convenção | Exemplo |
 |------|-----------|---------|
-| Componentes React | PascalCase | `UserCard.tsx`, `NavBar.tsx` |
-| Styled components | PascalCase descritivo | `HeroWrapper`, `NavBarLink` |
-| Arquivos de estilo | mesmo nome + `.styles.ts` | `Hero.styles.ts` |
-| Funções e variáveis | camelCase | `isLoading`, `handleClick` |
-| Tipos e Interfaces | PascalCase | `HeroProps`, `ThemeColors` |
-| Constantes globais | UPPER_SNAKE_CASE | `BREAKPOINT_MD` |
-| Custom hooks | prefixo `use` + camelCase | `useScrollPosition` |
-| Schemas Zod | PascalCase + `Schema` | `ContactFormSchema` |
+| Componentes React | PascalCase | `UserCard.tsx`, `PostList.tsx` |
+| Funções e variáveis | camelCase | `getUserById`, `isLoading` |
+| Tipos e Interfaces | PascalCase | `UserProfile`, `ApiResponse<T>` |
+| Constantes globais | UPPER_SNAKE_CASE | `MAX_FILE_SIZE`, `API_BASE_URL` |
+| Arquivos de componente | PascalCase | `Hero.tsx`, `NavBar.tsx` |
+| Custom hooks | prefixo `use` + camelCase | `useAuthSession`, `useDebounce` |
+| Schemas Zod | PascalCase + `Schema` | `CreatePostSchema`, `LoginSchema` |
 
 ---
 
 ## Performance
 
 - Use **`React.memo`** para componentes que recebem as mesmas props frequentemente
+- Use **`useMemo`** e **`useCallback`** apenas quando houver custo real — não antecipe
 - Use **`React.lazy` + `Suspense`** para componentes pesados não críticos para o carregamento inicial
+
+```typescript
+const HeavyComponent = React.lazy(() => import('@/components/HeavyComponent'))
+
+<Suspense fallback={<div>Carregando...</div>}>
+  <HeavyComponent />
+</Suspense>
+```
+
 - Imagens: use `loading="lazy"` para imagens abaixo da dobra
+- Prefira `loading="eager"` para imagens above-the-fold
 
 ---
 
 ## Segurança
 
-- Secrets (tokens, chaves) **nunca** no código — sempre em `.env.local`
-- Variáveis de ambiente com prefixo `VITE_` ficam disponíveis no cliente — não coloque secrets nelas
+- **NUNCA** exponha variáveis de ambiente sensíveis sem o prefixo `VITE_`
+  - Variáveis com `VITE_` ficam disponíveis no cliente — não coloque secrets nelas
+  - Secrets (tokens, chaves) **nunca** no código — sempre em `.env.local`
 - **Valide toda entrada do usuário** com Zod antes de processar
+- Não confie em dados externos sem validação
 
 ---
-
