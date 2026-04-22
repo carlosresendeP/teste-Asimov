@@ -91,6 +91,15 @@ export const ServiceCard = styled.div<{ $variant: CardVariant }>`
     justify-content: space-between;
     height: 100%;
   }
+
+  @media (max-width: 995px) {
+    max-width: 100%;
+    padding: 30px;
+
+    .left-side {
+      width: 100%;
+    }
+  }
 `
 
 export const CardTitleWrapper = styled.div`
@@ -117,6 +126,15 @@ export const CardIllustration = styled.img`
   max-width: 200px;
   max-height: 210px;
   object-fit: contain;
+
+  @media (max-width: 995px) {
+    position: static;
+    transform: none;
+    align-self: flex-end;
+    max-width: 120px;
+    max-height: 120px;
+    margin-top: 20px;
+  }
 `
 
 export const LearnMore = styled.div<{ $variant: CardVariant }>`
