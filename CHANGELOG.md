@@ -33,3 +33,11 @@
 -correção e alinhamento
 - teste de build *ok* 
 
+5- ajustes finais  e responsividade
+- ajustado responsividade
+- teste de build *ok* 
+
+6-deploy na netlify
+- deploy feito com sucesso
+
+7-finalizado 
