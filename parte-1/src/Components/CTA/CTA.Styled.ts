@@ -27,6 +27,7 @@ export const CTACard = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;
+    padding: 0 20px;
   }
 `
 

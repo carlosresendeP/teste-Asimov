@@ -17,5 +17,9 @@ export const GlobalStyles = createGlobalStyle`
         max-width: 1440px;
         margin: 0 auto;
         padding: 0 100px;
+        
+        @media screen and (max-width: 768px) {
+            padding: 0 25px;
+        }
     }
 `;
