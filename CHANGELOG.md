@@ -58,3 +58,10 @@ teste de build *ok*
     - pegar as referencias e colocar no prompt
     - ajustar o rules para o agente 
     - usar o react bits para animaçoes
+
+2-Mandar para a ia planjear o prompt
+    - correçoes no codigo feito pelo agente
+    - criação dos componentes TechStack e Stats
+    - criação do header complementar
+    - ajustes finais
+    -ajuste de cootimização do gsap usado no fundo do hero
