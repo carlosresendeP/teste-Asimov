@@ -21,4 +21,4 @@ npm run dev
 ```
 
 ## Deploy
-[Link da página publicada](https://sua-url-aqui.netlify.app)
+[Link da página publicada](https://asimov-curso-python-do-zero.netlify.app/)
