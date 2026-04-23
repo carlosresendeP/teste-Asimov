@@ -1,11 +1,11 @@
+import Header from '@/components/Header'
+import Hero from '@/components/Hero'
 
-function App() {
-
+export default function App() {
   return (
-    <>
-    test
-    </>
+    <main className="bg-background">
+      <Header />
+      <Hero />
+    </main>
   )
 }
-
-export default App

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://unpkg.com/jsrepo/schema.json",
+  "registries": ["https://reactbits.dev/r"],
+  "includeTests": false,
+  "includeDocs": false,
+  "watermark": false,
+  "paths": {
+    "components": "src/components/ui"
+  }
+}

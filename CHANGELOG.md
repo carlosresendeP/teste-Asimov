@@ -1,4 +1,4 @@
-parte-1
+## parte-1
 
 00 - planejamento e visualização do layout no figma
     -estrair dados do figma fontes espaçamentos cores, icones, imagens, prints 
@@ -45,4 +45,16 @@ parte-1
 7-finalizado 
 
 
-parte-2
+## parte-2
+
+0 - iniciar projeto com react+vite+typescript+tailwind+css
+instlar as dependencias necessarias para o projeto
+
+teste de build *ok* 
+
+1- planejamento com o claude code 
+    -extrair desigens e elementos para o projeto
+    -seguir a headline, Subheadline,Bullets, Cta primario e Cta secundario
+    - pegar as referencias e colocar no prompt
+    - ajustar o rules para o agente 
+    - usar o react bits para animaçoes
