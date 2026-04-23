@@ -1,7 +1,6 @@
 import { ArrowRight, CheckCircle, ChevronDown } from "lucide-react";
 import FloatingLines from "@/components/ui/FloatingLines";
 import SplitText from "@/components/ui/SplitText";
-import Stats from "@/components/Stats";
 import TechStack from "@/components/TechStack";
 
 const BULLETS = [
@@ -100,7 +99,6 @@ export default function Hero() {
           </button>
         </div>
         <TechStack />
-        <Stats />
 
       </div>
     </section>

@@ -5,14 +5,13 @@ Seção hero criada do zero para landing page de curso de Python com IA.
 ## Stack
 - React + Vite + TypeScript
 - Tailwind CSS v4
-- React Bits (SplitText, FloatingLines, ScrollVelocity, CountUp)
+- React Bits (SplitText, FloatingLines, ScrollVelocity)
 - lucide-react
 
 ## Componentes
 - `Header` — navbar simples com logo e CTA
 - `Hero` — seção principal com headline animada e fundo interativo
 - `TechStack` — faixa de tecnologias com scroll animado
-- `Stats` — contadores animados com CountUp
 
 ## Como rodar localmente
 ```bash
