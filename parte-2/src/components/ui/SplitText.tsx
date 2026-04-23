@@ -18,7 +18,6 @@ export interface SplitTextProps {
   threshold?: number;
   rootMargin?: string;
   tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
-  textAlign?: React.CSSProperties['textAlign'];
   onLetterAnimationComplete?: () => void;
 }
 
@@ -34,7 +33,6 @@ const SplitText: React.FC<SplitTextProps> = ({
   threshold = 0.1,
   rootMargin = '-100px',
   tag = 'p',
-  textAlign = 'center',
   onLetterAnimationComplete,
 }) => {
   const ref = useRef<HTMLParagraphElement>(null);
