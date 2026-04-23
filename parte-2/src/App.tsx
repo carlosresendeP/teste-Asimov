@@ -1,11 +1,15 @@
 import Header from '@/components/Header'
-import Hero from '@/components/Hero'
+import { lazy, Suspense } from 'react'
+
+const Hero = lazy(() => import('@/components/Hero'))
 
 export default function App() {
   return (
     <main className="bg-background">
       <Header />
-      <Hero />
+      <Suspense fallback={null}>
+        <Hero />
+      </Suspense>
     </main>
   )
 }
